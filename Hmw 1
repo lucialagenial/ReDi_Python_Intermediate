@@ -1,1 +1,36 @@
+# Homework (Session 1: 13.9.21)
+# Lucía ML
+#Write a program that counts from 1 to 50, for every number check if any of the following conditions are met, 
+#if so print that the condition is true:
+#number is odd
+#number is smaller than 3
+#number is bigger than 49 
+#number is divisible by 4 
+#number is 45 
+#bonus: number is a prime number (divisible by one and itself)
+list1 = list(range(1, 51))
+#print(list1)
 
+for number in list1:
+    if number % 2 == 0: # if the number is odd
+        print(True)
+    elif number < 3: # if it is smaller than 3
+        print(True)
+    elif number > 49: # bigger than 49
+        print(True)
+    elif number % 4 == 0: # divisible by 4
+        print(True) # (f" {number} divisible by 4")
+    elif number == 45: # is 45
+        print(True)
+    # To check whether or not a number is prime we need 2 conditions:
+    # 1st condition: 0, 1, even numbers greater than 2 are NOT prime
+    elif number == 1 or number == 0 or (number % 2 == 0 and number > 2):
+        pass
+    # 2nd condition: not prime is divisible by another number less or equal to the square root of itself.
+    # number**(1/2) returns square root of n
+    else:
+        for i in range(3, int(number ** (1 / 2)) + 1, 2):
+          if (number % i) == 0:
+            print(number)  # (f" {number} is not a prime") # Just to check whether it is a prime
+          else:
+            print(True)
